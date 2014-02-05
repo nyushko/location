@@ -18,6 +18,7 @@
  POSSIBILITY OF SUCH DAMAGE.
 */
 /* Modified by Baoliang Wang for CMPUT301 lab usage only.  2nd, Feb., 2014 */
+//sdcardPath=Enviroment.getExternalStorageDirectory().getAbsolutePath(), File file= new File()
 
 package ualberta.cmput301.mocklocation;
 
@@ -49,7 +50,7 @@ public class MockGpsProviderActivity extends Activity implements LocationListene
         setContentView(R.layout.main);
         
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+        
         if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){ 
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         }
@@ -160,7 +161,7 @@ public class MockGpsProviderActivity extends Activity implements LocationListene
 				// provide the new location
 				LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 				locationManager.setTestProviderLocation(MOCK_PROVIDER, location);
-				
+				//locationManager.getProvider(MOCK_PROVIDER);
 				// wait for a while and then process the next line
 				SystemClock.sleep(200);
 			}
